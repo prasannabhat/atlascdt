@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?eclipse version="3.2"?>
+<plugin>
+   <extension
+         point="org.eclipse.debug.core.launchConfigurationTypes">
+      <launchConfigurationType
+            name="Example Configuration Type"
+            delegate="org.dworks.debugexample.ExampleConfigurationDelegate"
+            modes="debug"
+            public="true"
+            sourceLocatorId="org.eclipse.cdt.debug.core.sourceLocator"
+            sourcePathComputerId="org.eclipse.cdt.debug.core.sourcePathComputer"
+            id="org.dworks.debugexample.ExampleLaunch">
+      </launchConfigurationType>
+   </extension>
+
+   <extension
+         point="org.eclipse.debug.ui.launchConfigurationTabGroups">
+      <launchConfigurationTabGroup
+            type="org.dworks.debugexample.ExampleLaunch"
+            class="org.dworks.debugexample.ExampleTabGroup"
+            id="org.dworks.debugexample.ExampleTabGroup">
+      </launchConfigurationTabGroup>
+   </extension>
+   
+   <extension 
+         point="org.eclipse.cdt.debug.core.CDebugger">
+      <debugger
+            platform="*"
+            name="Example Debugger"
+            modes="run"
+            cpu="*"
+            class="org.dworks.debugexample.ExampleDebugger"
+            id="org.dworks.debugexample.ExampleDebugger">
+      </debugger>
+   </extension>   
+</plugin>
