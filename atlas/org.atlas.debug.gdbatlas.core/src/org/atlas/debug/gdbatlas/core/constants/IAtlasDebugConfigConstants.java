@@ -6,7 +6,7 @@ public interface IAtlasDebugConfigConstants {
 	
 	public static final String IP_ADDRESS = "localhost";
 	
-	public static final String PORT_NUMBER = "2345";
+	public static final int PORT_NUMBER = 2345;
 	
 	public static final String DEFAULT_GDB_COMMAND = "gdb";
 

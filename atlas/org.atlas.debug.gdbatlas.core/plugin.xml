@@ -17,6 +17,8 @@
             id="org.atlas.debug.gdbatlas.launchDelegate"
             modes="debug"
             name="%launchConfig.name"
+            sourceLocatorId="org.eclipse.cdt.debug.core.sourceLocator"
+            sourcePathComputerId="org.eclipse.cdt.debug.core.sourcePathComputer"
             type="org.atlas.debug.gdbatlas.launchConfigurationType">
       </launchDelegate>
    </extension>

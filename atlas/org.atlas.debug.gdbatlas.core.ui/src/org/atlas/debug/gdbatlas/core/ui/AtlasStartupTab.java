@@ -809,6 +809,8 @@ public class AtlasStartupTab extends AbstractLaunchConfigurationTab {
 		configuration.setAttribute(IGDBJtagConstants.ATTR_JTAG_DEVICE, IAtlasDebugConfigConstants.JTAG_DEVICE);
 		configuration.setAttribute(IGDBJtagConstants.ATTR_IP_ADDRESS, IAtlasDebugConfigConstants.IP_ADDRESS);
 		configuration.setAttribute(IGDBJtagConstants.ATTR_PORT_NUMBER, IAtlasDebugConfigConstants.PORT_NUMBER);
+		
+		configuration.setAttribute("process_factory_id", "org.eclipse.cdt.dsf.gdb.GdbProcessFactory");
 	}
 	
 	private void setDefaultCommonTab(ILaunchConfigurationWorkingCopy configuration){
