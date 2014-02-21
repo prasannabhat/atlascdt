@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?eclipse version="3.4"?>
+<plugin>
+   <extension
+         point="org.eclipse.debug.ui.launchConfigurationTypeImages">
+      <launchConfigurationTypeImage
+            configTypeID="org.atlas.debug.gdbatlas.launchConfigurationType"
+            icon="icons/atlas_app.gif"
+            id="org.atlas.debug.gdbatlas.core.ui.launchConfigurationTypeImage1">
+      </launchConfigurationTypeImage>
+   </extension>
+   <extension
+         point="org.eclipse.debug.ui.launchConfigurationTabGroups">
+      <launchConfigurationTabGroup
+            class="org.atlas.debug.gdbatlas.core.ui.AtlasLaunchConfigurationTabGroup"
+            id="org.atlas.debug.gdbatlas.core.ui.launchConfigurationTabGroup"
+            type="org.atlas.debug.gdbatlas.launchConfigurationType">
+      </launchConfigurationTabGroup>
+   </extension>
+   <extension
+         point="org.eclipse.debug.ui.launchConfigurationTabs">
+      <tab
+            class="org.atlas.debug.gdbatlas.core.ui.AtlasMainTab"
+            group="org.atlas.debug.gdbatlas.core.ui.launchConfigurationTabGroup"
+            id="org.atlas.debug.gdbatlas.ui.cmaintab"
+            name="%launchtab.cmaintab.name">
+         <associatedDelegate
+               delegate="org.atlas.debug.gdbatlas.launchDelegate">
+         </associatedDelegate>
+      </tab>
+      <tab
+            class="org.atlas.debug.gdbatlas.core.ui.AtlasStartupTab"
+            group="org.atlas.debug.gdbatlas.core.ui.launchConfigurationTabGroup"
+            id="org.atlas.debug.gdbatlas.ui.startup"
+            name="%launchtab.startuptab.name">
+         <associatedDelegate
+               delegate="org.atlas.debug.gdbatlas.launchDelegate">
+         </associatedDelegate>
+         <placement
+               after="org.atlas.debug.gdbatlas.ui.cmaintab">
+         </placement>
+      </tab>
+   </extension>
+
+</plugin>

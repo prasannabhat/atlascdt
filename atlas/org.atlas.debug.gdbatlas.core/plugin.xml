@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?eclipse version="3.4"?>
+<plugin>
+   <extension
+         point="org.eclipse.debug.core.launchConfigurationTypes">
+      <launchConfigurationType
+            id="org.atlas.debug.gdbatlas.launchConfigurationType"
+            modes="debug"
+            name="%launchConfig.name"
+            public="true">
+      </launchConfigurationType>
+   </extension>
+   <extension
+         point="org.eclipse.debug.core.launchDelegates">
+      <launchDelegate
+            delegate="org.atlas.debug.gdbatlas.core.LaunchConfigurationDelegate"
+            id="org.atlas.debug.gdbatlas.launchDelegate"
+            modes="debug"
+            name="%launchConfig.name"
+            type="org.atlas.debug.gdbatlas.launchConfigurationType">
+      </launchDelegate>
+   </extension>
+
+
+</plugin>
