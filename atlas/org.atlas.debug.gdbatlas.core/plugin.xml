@@ -13,7 +13,7 @@
    <extension
          point="org.eclipse.debug.core.launchDelegates">
       <launchDelegate
-            delegate="org.atlas.debug.gdbatlas.core.LaunchConfigurationDelegate"
+            delegate="org.atlas.debug.gdbatlas.core.AtlasLaunchConfigurationDelegate"
             id="org.atlas.debug.gdbatlas.launchDelegate"
             modes="debug"
             name="%launchConfig.name"
