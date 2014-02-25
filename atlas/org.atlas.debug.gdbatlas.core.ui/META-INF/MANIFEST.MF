@@ -18,6 +18,6 @@ Require-Bundle: org.eclipse.ui,
  org.eclipse.cdt.dsf.gdb,
  org.eclipse.cdt.dsf.gdb.ui,
  org.eclipse.cdt.debug.gdbjtag.ui,
- org.eclipse.cdt.debug.gdbjtag;bundle-version="7.0.0",
- org.atlas.debug.gdbatlas.core;bundle-version="1.0.0"
+ org.eclipse.cdt.debug.gdbjtag,
+ org.atlas.debug.gdbatlas.core
 Bundle-ActivationPolicy: lazy
