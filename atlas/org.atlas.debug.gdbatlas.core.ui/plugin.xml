@@ -40,6 +40,18 @@
                after="org.atlas.debug.gdbatlas.ui.cmaintab">
          </placement>
       </tab>
+      <tab
+            class="org.eclipse.debug.ui.sourcelookup.SourceLookupTab"
+            group="org.atlas.debug.gdbatlas.core.ui.launchConfigurationTabGroup"
+            id="org.atlas.debug.gdbatlas.ui.sourclookupetab"
+            name="%launchtab.sourceLookTab.name">
+         <associatedDelegate
+               delegate="org.atlas.debug.gdbatlas.launchDelegate">
+         </associatedDelegate>
+         <placement
+               after="org.atlas.debug.gdbatlas.ui.startup">
+         </placement>
+      </tab>
    </extension>
 
 </plugin>
