@@ -1,0 +1,6 @@
+*.jar
+/*/*/bin
+/*/*/index
+/*/*/target
+.DS_Store
+.nfs*
