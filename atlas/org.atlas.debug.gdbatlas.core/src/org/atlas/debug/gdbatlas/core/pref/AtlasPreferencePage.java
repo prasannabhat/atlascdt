@@ -26,7 +26,8 @@ public class AtlasPreferencePage extends FieldEditorPreferencePage implements IW
 
 	@Override
 	protected void createFieldEditors() {
-		addField(new FileFieldEditor(IAtlasDebugPreferenceKeys.GDB_COMMAND, AtlasI18n.getString(IResouceBundleKeys.PREFEENCE_GDB_COMMAND), true, getFieldEditorParent()));
+		addField(new FileFieldEditor(IAtlasDebugPreferenceKeys.GDB_COMMAND, AtlasI18n.getString(IResouceBundleKeys.PREFEENCE_GDB_COMMAND), false, getFieldEditorParent()));
+		addField(new FileFieldEditor(IAtlasDebugPreferenceKeys.GDBSERVER_COMMAND, AtlasI18n.getString(IResouceBundleKeys.PREFEENCE_GDBSERVER_COMMAND), false,getFieldEditorParent()));
 		addField(new IntegerFieldEditor(IAtlasDebugPreferenceKeys.PORT_NUMBER, AtlasI18n.getString(IResouceBundleKeys.PREFEENCE_PORT), getFieldEditorParent(), 4));
 		addField(new BooleanFieldEditor(IAtlasDebugPreferenceKeys.HARDWARE_BREAKPOINT, AtlasI18n.getString(IResouceBundleKeys.PREFEENCE_HARDWARE_BREAKPOINT), getFieldEditorParent()));
 	}
