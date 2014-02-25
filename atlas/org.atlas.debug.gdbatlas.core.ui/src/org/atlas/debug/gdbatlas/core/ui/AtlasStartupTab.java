@@ -3,6 +3,7 @@ package org.atlas.debug.gdbatlas.core.ui;
 import java.io.File;
 
 import org.atlas.debug.gdbatlas.core.constants.IAtlasDebugConfigConstants;
+import org.atlas.debug.gdbatlas.core.pref.AtlasPreferences;
 import org.eclipse.cdt.debug.core.CDebugUtils;
 import org.eclipse.cdt.debug.gdbjtag.core.IGDBJtagConstants;
 import org.eclipse.cdt.debug.gdbjtag.ui.GDBJtagImages;
@@ -759,7 +760,8 @@ public class AtlasStartupTab extends AbstractLaunchConfigurationTab {
 		configuration.setAttribute(IGDBJtagConstants.ATTR_INIT_COMMANDS, IGDBJtagConstants.DEFAULT_INIT_COMMANDS);
 
 		// Load Image...
-		configuration.setAttribute(IGDBJtagConstants.ATTR_LOAD_IMAGE, IGDBJtagConstants.DEFAULT_LOAD_IMAGE);
+		// Explicitly disable Load Image in the beginning
+		configuration.setAttribute(IGDBJtagConstants.ATTR_LOAD_IMAGE, false);
 		configuration.setAttribute(IGDBJtagConstants.ATTR_USE_PROJ_BINARY_FOR_IMAGE, IGDBJtagConstants.DEFAULT_USE_PROJ_BINARY_FOR_IMAGE);
 		configuration.setAttribute(IGDBJtagConstants.ATTR_USE_FILE_FOR_IMAGE, IGDBJtagConstants.DEFAULT_USE_FILE_FOR_IMAGE);
 		configuration.setAttribute(IGDBJtagConstants.ATTR_IMAGE_FILE_NAME, IGDBJtagConstants.DEFAULT_IMAGE_FILE_NAME);
@@ -784,14 +786,9 @@ public class AtlasStartupTab extends AbstractLaunchConfigurationTab {
 	}
 	
 	private void setDefaultsDebuggerTab(ILaunchConfigurationWorkingCopy configuration){
-		String defaultGdbCommand = Platform.getPreferencesService().getString(GdbPlugin.PLUGIN_ID,
-                IGdbDebugPreferenceConstants.PREF_DEFAULT_GDB_COMMAND, "", null);  //$NON-NLS-1$
-		if((defaultGdbCommand != null) && defaultGdbCommand.length() != 0){
-			configuration.setAttribute(IGDBLaunchConfigurationConstants.ATTR_DEBUG_NAME, defaultGdbCommand);
-		}
-		else{
-			configuration.setAttribute(IGDBLaunchConfigurationConstants.ATTR_DEBUG_NAME, IAtlasDebugConfigConstants.DEFAULT_GDB_COMMAND);			
-		}
+		String defaultGdbCommand = AtlasPreferences.getGdbCommand();
+		configuration.setAttribute(IGDBLaunchConfigurationConstants.ATTR_DEBUG_NAME, defaultGdbCommand);
+
 		configuration.setAttribute(IGDBLaunchConfigurationConstants.ATTR_DEBUG_NAME, defaultGdbCommand);
 		configuration.setAttribute(IMILaunchConfigurationConstants.ATTR_DEBUG_NAME, defaultGdbCommand);
 		
@@ -808,7 +805,7 @@ public class AtlasStartupTab extends AbstractLaunchConfigurationTab {
 		
 		configuration.setAttribute(IGDBJtagConstants.ATTR_JTAG_DEVICE, IAtlasDebugConfigConstants.JTAG_DEVICE);
 		configuration.setAttribute(IGDBJtagConstants.ATTR_IP_ADDRESS, IAtlasDebugConfigConstants.IP_ADDRESS);
-		configuration.setAttribute(IGDBJtagConstants.ATTR_PORT_NUMBER, IAtlasDebugConfigConstants.PORT_NUMBER);
+		configuration.setAttribute(IGDBJtagConstants.ATTR_PORT_NUMBER, AtlasPreferences.getPortNumber());
 		
 		configuration.setAttribute("process_factory_id", "org.eclipse.cdt.dsf.gdb.GdbProcessFactory");
 	}

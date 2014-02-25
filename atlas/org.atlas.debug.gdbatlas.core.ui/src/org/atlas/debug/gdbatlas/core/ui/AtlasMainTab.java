@@ -1,5 +1,6 @@
 package org.atlas.debug.gdbatlas.core.ui;
 
+import org.eclipse.cdt.debug.core.ICDTLaunchConfigurationConstants;
 import org.eclipse.cdt.debug.gdbjtag.internal.ui.GDBJtagDSFCMainTab;
 import org.eclipse.cdt.launch.ui.CMainTab;
 import org.eclipse.debug.core.ILaunch;
@@ -15,6 +16,14 @@ public class AtlasMainTab extends GDBJtagDSFCMainTab {
 
 	public AtlasMainTab() {
 		
+	}
+	
+	@Override
+	public void setDefaults(ILaunchConfigurationWorkingCopy config) {
+		super.setDefaults(config);
+		// Disable auto build before launch
+		config.setAttribute(ICDTLaunchConfigurationConstants.ATTR_BUILD_BEFORE_LAUNCH, ICDTLaunchConfigurationConstants.BUILD_BEFORE_LAUNCH_DISABLED);
+
 	}
 
 }

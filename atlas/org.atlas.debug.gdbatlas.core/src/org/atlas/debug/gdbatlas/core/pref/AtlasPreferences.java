@@ -8,5 +8,9 @@ public class AtlasPreferences {
 	public static String getGdbCommand(){
 		return Activator.getDefault().getPreferenceStore().getString(IAtlasDebugPreferenceKeys.GDB_COMMAND);
 	}
+	
+	public static int getPortNumber(){
+		return Activator.getDefault().getPreferenceStore().getInt(IAtlasDebugPreferenceKeys.PORT_NUMBER);
+	} 
 
 }
