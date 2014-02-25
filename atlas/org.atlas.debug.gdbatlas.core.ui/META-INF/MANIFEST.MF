@@ -4,7 +4,7 @@ Bundle-Name: %pluginName
 Bundle-SymbolicName: org.atlas.debug.gdbatlas.core.ui;singleton:=true
 Bundle-Version: 1.0.0.qualifier
 Bundle-Activator: org.atlas.debug.gdbatlas.core.ui.Activator
-Bundle-RequiredExecutionEnvironment: JavaSE-1.7
+Bundle-RequiredExecutionEnvironment: JavaSE-1.6
 Bundle-Localization: plugin
 Require-Bundle: org.eclipse.ui,
  org.eclipse.core.runtime,
