@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<site>
+   <feature url="features/org.atlas.debug.gdbatlas_feature_1.0.0.201402251133.jar" id="org.atlas.debug.gdbatlas_feature" version="1.0.0.201402251133">
+      <category name="org.atlas.debug.gdbstlas"/>
+   </feature>
+   <category-def name="org.atlas.debug.gdbstlas" label="Atlas debugger"/>
+</site>
