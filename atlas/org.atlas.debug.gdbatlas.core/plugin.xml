@@ -22,6 +22,20 @@
             type="org.atlas.debug.gdbatlas.launchConfigurationType">
       </launchDelegate>
    </extension>
+   <extension
+         point="org.eclipse.ui.preferencePages">
+      <page
+            class="org.atlas.debug.gdbatlas.core.pref.AtlasPreferencePage"
+            id="org.atlas.debug.gdbatlas.core.preferencePage"
+            name="%preferencePage.name">
+      </page>
+   </extension>
+   <extension
+         point="org.eclipse.core.runtime.preferences">
+      <initializer
+            class="org.atlas.debug.gdbatlas.core.pref.AtlasPreferenceInitializer">
+      </initializer>
+   </extension>
 
 
 </plugin>

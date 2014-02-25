@@ -1,0 +1,8 @@
+package org.atlas.debug.gdbatlas.core.constants;
+
+public interface IResouceBundleKeys {
+	public static final String PREFEENCE_DESC = "AtlasPreferencePage.description";
+	public static final String PREFEENCE_PORT = "AtlasPreferencePage.portNumber";
+	public static final String PREFEENCE_HARDWARE_BREAKPOINT = "AtlasPreferencePage.HardWareBreakPoint";
+	public static final String PREFEENCE_GDB_COMMAND = "AtlasPreferencePage.gdbCommand";
+}
