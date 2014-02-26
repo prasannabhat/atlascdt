@@ -15,6 +15,7 @@ public class AtlasPreferenceInitializer extends AbstractPreferenceInitializer {
 		IPreferenceStore store = Activator.getDefault().getPreferenceStore();
 	    store.setDefault(IAtlasDebugPreferenceKeys.GDB_COMMAND, "gdb");
 	    store.setDefault(IAtlasDebugPreferenceKeys.GDBSERVER_COMMAND, "gdbserver");
+	    store.setDefault(IAtlasDebugPreferenceKeys.AUTOSTART_GDBSERVER, false);
 	    store.setDefault(IAtlasDebugPreferenceKeys.HARDWARE_BREAKPOINT, false);
 	    store.setDefault(IAtlasDebugPreferenceKeys.PORT_NUMBER, 3000);
 	}

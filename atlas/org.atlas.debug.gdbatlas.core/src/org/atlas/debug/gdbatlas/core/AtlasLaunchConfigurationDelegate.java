@@ -38,6 +38,28 @@ public class AtlasLaunchConfigurationDelegate extends GDBJtagDSFLaunchConfigurat
 	@Override
 	public void launch(ILaunchConfiguration config, String mode,
 			ILaunch launch, IProgressMonitor monitor) throws CoreException {
+		
+		// Start the gdb server, depending on the preference
+		boolean autostartGdbServer = Activator.getDefault().getPreferenceStore().getBoolean(IAtlasDebugPreferenceKeys.AUTOSTART_GDBSERVER);
+		if(autostartGdbServer){
+			autostartGdbServer(config);
+		}
+		
+		// Proceed to regular launch
+		super.launch(config, mode, launch, monitor);
+
+	}
+	
+	
+	@Override
+	protected void cleanupLaunch() throws DebugException {
+		if(gdbServerProcess != null){
+			gdbServerProcess.destroy();
+		}
+		super.cleanupLaunch();
+	}
+	
+	private void autostartGdbServer(ILaunchConfiguration config) throws CoreException{
 		// Calculate parameters required to invoke gdb server
 		String gdbServer = Activator.getDefault().getPreferenceStore().getString(IAtlasDebugPreferenceKeys.GDBSERVER_COMMAND);
 		String command = gdbServer;
@@ -56,18 +78,6 @@ public class AtlasLaunchConfigurationDelegate extends GDBJtagDSFLaunchConfigurat
 //		gdbServerProcess = startGdbServer(command);
 		gdbServerProcess = startGdbServer(gdbServer, ipPort, program);
 		
-		// Proceed to regular launch
-		super.launch(config, mode, launch, monitor);
-
-	}
-	
-	
-	@Override
-	protected void cleanupLaunch() throws DebugException {
-		if(gdbServerProcess != null){
-			gdbServerProcess.destroy();
-		}
-		super.cleanupLaunch();
 	}
 	
 	private Process startGdbServer(String command){
