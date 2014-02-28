@@ -2,7 +2,9 @@ package org.atlas.debug.gdbjtag.core.dsf.gdb.service;
 
 import org.atlas.gdb.service.command.AtlasCommandFactory;
 import org.eclipse.cdt.dsf.debug.service.command.ICommandControl;
+import org.eclipse.cdt.dsf.gdb.service.GDBBackend;
 import org.eclipse.cdt.dsf.gdb.service.GdbDebugServicesFactory;
+import org.eclipse.cdt.dsf.mi.service.IMIBackend;
 import org.eclipse.cdt.dsf.mi.service.command.CommandFactory;
 import org.eclipse.cdt.dsf.service.DsfSession;
 import org.eclipse.debug.core.ILaunchConfiguration;
@@ -29,6 +31,12 @@ public class AtlasGdbJtagDebugServicesFactory extends GdbDebugServicesFactory{
 			return new AtlasGDBJtagControl(session, config, new AtlasCommandFactory());
 		}
 		return new AtlasGDBJtagControl(session, config, new CommandFactory());
+	}
+	
+	@Override
+	protected IMIBackend createBackendGDBService(DsfSession session,
+			ILaunchConfiguration lc) {
+		return new AtlasGDBBackend(session, lc);
 	}
 
 }
