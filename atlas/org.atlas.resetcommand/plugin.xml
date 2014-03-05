@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?eclipse version="3.4"?>
+<plugin>
+
+   <extension
+         point="org.eclipse.ui.commands">
+      <category
+            name="Rerset Category"
+            id="org.atlas.resetcommand.commands.category">
+      </category>
+      <command
+            category="org.atlas.resetcommand.commands.category"
+            categoryId="org.atlas.resetcommand.commands.category"
+            id="org.atlas.resetcommand.commands.sampleCommand"
+            name="Reset Command">
+      </command>
+      <command
+            categoryId="org.atlas.resetcommand.commands.category"
+            id="org.atlas.resetcommand.resethalt"
+            name="ResetHalt">
+      </command>
+   </extension>
+   <extension
+         point="org.eclipse.ui.handlers">
+      <handler
+            commandId="org.atlas.resetcommand.commands.sampleCommand"
+            class="org.atlas.resetcommand.handlers.ResetHandler">
+      </handler>
+      <handler
+            class="org.atlas.resetcommand.handlers.ResetHaltHandler"
+            commandId="org.atlas.resetcommand.resethalt">
+      </handler>
+   </extension>
+   <extension
+         point="org.eclipse.ui.bindings">
+      <key
+            commandId="org.atlas.resetcommand.commands.sampleCommand"
+            contextId="org.eclipse.ui.contexts.window"
+            sequence="M1+6"
+            schemeId="org.eclipse.ui.defaultAcceleratorConfiguration">
+      </key>
+   </extension>
+   <extension
+         point="org.eclipse.ui.menus">
+      <menuContribution
+            locationURI="toolbar:org.eclipse.ui.main.toolbar?after=additions">
+         <toolbar
+               id="org.atlas.resetcommand.toolbars.sampleToolbar">
+            <command
+                  commandId="org.atlas.resetcommand.commands.sampleCommand"
+                  icon="icons/ResetIcon.png"
+                  id="org.atlas.resetcommand.toolbars.sampleCommand"
+                  style="pulldown"
+                  tooltip="Reset">
+            </command>
+            <command
+                  commandId="org.atlas.resetcommand.resethalt"
+                  icon="icons/sample.gif"
+                  tooltip="Reset and Halt">
+            </command>
+         </toolbar>
+      </menuContribution>
+   </extension>
+
+</plugin>

@@ -18,7 +18,7 @@ public class AtlasPreferenceInitializer extends AbstractPreferenceInitializer {
 	    store.setDefault(IAtlasDebugPreferenceKeys.AUTOSTART_GDBSERVER, false);
 	    store.setDefault(IAtlasDebugPreferenceKeys.HARDWARE_BREAKPOINT, false);
 	    store.setDefault(IAtlasDebugPreferenceKeys.PORT_NUMBER, 3000);
-	    store.setDefault(IAtlasDebugPreferenceKeys.FLASH_COMMAND, "\"C:\\Program Files (x86)\\Infineon\\Memtool 4.5\\IMTMemtool.exe\"");
+	    //store.setDefault(IAtlasDebugPreferenceKeys.FLASH_COMMAND, "\"C:\\Program Files (x86)\\Infineon\\Memtool 4.5\\IMTMemtool.exe\"");
 	}
 
 }

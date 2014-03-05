@@ -22,18 +22,45 @@
             type="org.atlas.debug.gdbatlas.launchConfigurationType">
       </launchDelegate>
    </extension>
+   
+   
    <extension
          point="org.eclipse.ui.preferencePages">
       <page
+            category="org.atlas.debug.gdbatlas.core.page2"
             class="org.atlas.debug.gdbatlas.core.pref.AtlasPreferencePage"
             id="org.atlas.debug.gdbatlas.core.preferencePage"
-            name="%preferencePage.name">
+            name="Debug">
+      </page>
+      <page
+            category="org.atlas.debug.gdbatlas.core.page2"
+            class="org.atlas.debug.gdbatlas.core.pref.FlashPreferencePage"
+            id="org.atlas.debug.gdbatlas.core.preferencePage"
+            name="Flash">
+      </page>
+      <page
+            class="org.atlas.debug.gdbatlas.core.pref.MainPreferencePage"
+            id="org.atlas.debug.gdbatlas.core.page2"
+            name="Atlas">
       </page>
    </extension>
+   
+   
+   
+   
+   
    <extension
          point="org.eclipse.core.runtime.preferences">
       <initializer
             class="org.atlas.debug.gdbatlas.core.pref.AtlasPreferenceInitializer">
+      </initializer>
+   </extension>
+   
+   
+    <extension
+         point="org.eclipse.core.runtime.preferences">
+      <initializer
+            class="org.atlas.debug.gdbatlas.core.pref.FlashPreferenceInitializer">
       </initializer>
    </extension>
 

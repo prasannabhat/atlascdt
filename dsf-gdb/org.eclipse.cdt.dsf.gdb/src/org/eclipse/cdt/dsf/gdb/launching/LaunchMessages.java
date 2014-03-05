@@ -12,12 +12,15 @@
 package org.eclipse.cdt.dsf.gdb.launching;
 
 import com.ibm.icu.text.MessageFormat;
+
 import java.util.MissingResourceException;
 import java.util.ResourceBundle;
 
 public class LaunchMessages {
 
 	private static final String BUNDLE_NAME = "org.eclipse.cdt.dsf.gdb.launching.LaunchMessages";//$NON-NLS-1$
+
+	private static final String CMainTab_C_Application = "CMainTab c Application";
 
 	private static ResourceBundle RESOURCE_BUNDLE = null;
 
