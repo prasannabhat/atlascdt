@@ -6,5 +6,6 @@ public interface IAtlasDebugPreferenceKeys {
 	public static final String GDB_COMMAND = "GDB_COMMAND";
 	public static final String GDBSERVER_COMMAND = "GDBSERVER_COMMAND";
 	public static final String AUTOSTART_GDBSERVER = "AUTOSTART_GDBSERVER";
+	public static final String FLASH_COMMAND = "FLASH_COMMAND";
 
 }
