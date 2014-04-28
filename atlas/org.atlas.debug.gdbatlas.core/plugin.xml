@@ -25,9 +25,21 @@
    <extension
          point="org.eclipse.ui.preferencePages">
       <page
+            class="org.atlas.debug.gdbatlas.core.pref.AtlasMainPreferencePage"
+            id="org.atlas.debug.gdbatlas.core.page2"
+            name="Atlas Preferences">
+      </page>
+      <page
+            category="org.atlas.debug.gdbatlas.core.page2"
             class="org.atlas.debug.gdbatlas.core.pref.AtlasPreferencePage"
             id="org.atlas.debug.gdbatlas.core.preferencePage"
             name="%preferencePage.name">
+      </page>
+      <page
+            category="org.atlas.debug.gdbatlas.core.page2"
+            class="org.atlas.debug.gdbatlas.core.pref.FlashPreferencePage"
+            id="org.atlas.debug.gdbatlas.core.page1"
+            name="Flash">
       </page>
    </extension>
    <extension
