@@ -1,0 +1,12 @@
+Manifest-Version: 1.0
+Bundle-ManifestVersion: 2
+Bundle-Name: Flashbutton
+Bundle-SymbolicName: org.atlas.flashbutton;singleton:=true
+Bundle-Version: 1.0.0.qualifier
+Bundle-Activator: org.atlas.flashbutton.Activator
+Require-Bundle: org.eclipse.ui,
+ org.eclipse.core.runtime
+Bundle-RequiredExecutionEnvironment: JavaSE-1.6
+Bundle-ActivationPolicy: lazy
+Import-Package: org.atlas.debug.gdbatlas.core,
+ org.atlas.debug.gdbatlas.core.constants
