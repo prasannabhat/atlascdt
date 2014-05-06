@@ -26,6 +26,7 @@ import org.eclipse.swt.widgets.Text;
 public class AtlasMainTab extends GDBJtagDSFCMainTab {
 
 	Button check;
+	Button browseForBinaryButton;
 	public AtlasMainTab() {
 		
 	}
@@ -37,6 +38,7 @@ public class AtlasMainTab extends GDBJtagDSFCMainTab {
 		config.setAttribute(ICDTLaunchConfigurationConstants.ATTR_BUILD_BEFORE_LAUNCH, ICDTLaunchConfigurationConstants.BUILD_BEFORE_LAUNCH_DISABLED);
 		
 	}
+	
 	protected void createProjectGroup(Composite parent, int colSpan) {
 		Composite projComp = new Composite(parent, SWT.NONE);
 		GridLayout projLayout = new GridLayout();
@@ -97,8 +99,65 @@ public class AtlasMainTab extends GDBJtagDSFCMainTab {
 	    		fEnableBuildButton.setEnabled(check.getSelection());
 	    		fWorkspaceSettingsButton.setEnabled(check.getSelection());
 	    		fWorkpsaceSettingsLink.setEnabled(check.getSelection());
+	    		browseForBinaryButton.setEnabled(check.getSelection());
 	        }
 	    };
+	    
+	    protected void createExeFileGroup(Composite parent, int colSpan){
+	    	Composite mainComp = new Composite(parent, SWT.NONE);
+			GridLayout mainLayout = new GridLayout();
+			mainLayout.marginHeight = 0;
+			mainLayout.marginWidth = 0;
+			mainComp.setLayout(mainLayout);
+			GridData gd = new GridData(GridData.FILL_HORIZONTAL);
+			gd.horizontalSpan = colSpan;
+			mainComp.setLayoutData(gd);
+			fProgLabel = new Label(mainComp, SWT.NONE);
+			fProgLabel.setText("C/C++_Application"); //$NON-NLS-1$
+			gd = new GridData();
+			fProgLabel.setLayoutData(gd);
+			fProgText = new Text(mainComp, SWT.SINGLE | SWT.BORDER);
+			gd = new GridData(GridData.FILL_HORIZONTAL);
+			fProgText.setLayoutData(gd);
+			fProgText.addModifyListener(new ModifyListener() {
+	            @Override
+				public void modifyText(ModifyEvent evt) {
+					updateLaunchConfigurationDialog();
+				}
+			});
+
+			Composite buttonComp = new Composite(mainComp, SWT.NONE);
+			GridLayout layout = new GridLayout(3, false);
+			layout.marginHeight = 0;
+			layout.marginWidth = 0;
+			buttonComp.setLayout(layout);
+			gd = new GridData(GridData.HORIZONTAL_ALIGN_END);
+			buttonComp.setLayoutData(gd);
+			buttonComp.setFont(parent.getFont());
+
+			createVariablesButton(buttonComp,"Variables", fProgText).setVisible(false); //$NON-NLS-1$
+			fSearchButton = createPushButton(buttonComp,"Search...", null); //$NON-NLS-1$
+			fSearchButton.addSelectionListener(new SelectionAdapter() {
+				@Override
+				public void widgetSelected(SelectionEvent evt) {
+					handleSearchButtonSelected();
+					updateLaunchConfigurationDialog();
+				}
+			});
+
+			
+			browseForBinaryButton = createPushButton(buttonComp,"Browse", null); //$NON-NLS-1$
+			browseForBinaryButton.addSelectionListener(new SelectionAdapter() {
+				@Override
+				public void widgetSelected(SelectionEvent evt) {
+					String text = handleBrowseButtonSelected("Application_Selection"); //$NON-NLS-1$
+					if (text != null) {
+						fProgText.setText(text);
+					}
+					updateLaunchConfigurationDialog();
+				}
+			});
+	    }
 	    
 	    
 
