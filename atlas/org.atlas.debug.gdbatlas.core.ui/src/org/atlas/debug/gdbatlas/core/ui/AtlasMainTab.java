@@ -26,7 +26,7 @@ import org.eclipse.swt.widgets.Text;
 public class AtlasMainTab extends GDBJtagDSFCMainTab {
 
 	Button check;
-	Button browseForBinaryButton;
+	Button fSearchButton;
 	public AtlasMainTab() {
 		
 	}
@@ -99,7 +99,7 @@ public class AtlasMainTab extends GDBJtagDSFCMainTab {
 	    		fEnableBuildButton.setEnabled(check.getSelection());
 	    		fWorkspaceSettingsButton.setEnabled(check.getSelection());
 	    		fWorkpsaceSettingsLink.setEnabled(check.getSelection());
-	    		browseForBinaryButton.setEnabled(check.getSelection());
+	    		fSearchButton.setEnabled(check.getSelection());
 	        }
 	    };
 	    
@@ -146,7 +146,7 @@ public class AtlasMainTab extends GDBJtagDSFCMainTab {
 			});
 
 			
-			browseForBinaryButton = createPushButton(buttonComp,"Browse", null); //$NON-NLS-1$
+			Button browseForBinaryButton = createPushButton(buttonComp,"Browse", null); //$NON-NLS-1$
 			browseForBinaryButton.addSelectionListener(new SelectionAdapter() {
 				@Override
 				public void widgetSelected(SelectionEvent evt) {
